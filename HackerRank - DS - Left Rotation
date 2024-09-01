@@ -1,1 +1,38 @@
+Method 1:
+public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+         int size = arr.size();
+         d = d % size;
+         int[] temp = new int[d];
+         for(int i = 0; i < d; i++) {
+             temp[i] = arr.get(i);
+         }
+         for(int i = 0; i < size - d; i++) {
+             arr.set(i, arr.get(i+d));
+         }
+         for(int i = size-d; i < d; i++) {
+             arr.set(i, temp[i - d - 1]);
+         }
+    return arr;
+    }
 
+or
+
+public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+         int size = arr.size();
+         d = d % size;
+         int[] temp = new int[d];
+         for(int i = 0; i < d; i++) {
+             temp[i] = arr.get(i);
+         }
+         for(int i = 0; i < size - d; i++) {
+             arr.set(i, arr.get(i+d));
+         }
+         for(int i = 0; i < d; i++) {
+             arr.set(size-d+i, temp[i]);
+         }
+    return arr;
+}
+
+
+
+Method 2:
