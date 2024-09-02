@@ -36,3 +36,21 @@ public static List<Integer> rotateLeft(int d, List<Integer> arr) {
 
 
 Method 2:
+
+public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+        int size = arr.size();
+        d = d % size;
+        rev(arr, 0, size - 1);
+        rev(arr, 0, size - d - 1);
+        rev(arr, size - d, size - 1);
+        return arr;
+}
+public static void rev(List<Integer> arr, int start, int end) {
+        while(start < end) {
+            int temp = arr.get(start);
+            arr.set(start, arr.get(end));
+            arr.set(end, temp);
+            start++;
+            end--;
+        }
+}
