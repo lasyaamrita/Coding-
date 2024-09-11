@@ -1,0 +1,60 @@
+If the requirement is sorted array:
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int size = nums.length;
+        if(nums.length == 1) {
+            return;
+        }
+        Arrays.sort(nums);
+        int count = 0;
+        for(int i = 0; i < size; i++) {
+            if(nums[i] == 0) {
+                count++;
+            }
+        }
+        int j = count;
+        for(int i = 0; i < size-count; i++){
+            nums[i] = nums[j];
+            j++;
+        }
+        for(int i = size-count; i < size; i++) {
+            nums[i] = 0;
+        }
+    }
+}
+
+
+
+Method 1: using temporary arraylist
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int size = nums.length;
+        if(nums.length == 1) {
+            return;
+        }
+        ArrayList<Integer> temp = new ArrayList<>();
+        for(int i = 0; i < size; i++) {
+            if(nums[i] != 0) {
+                temp.add(nums[i]);
+            }
+        }
+        int zeros = nums.length - temp.size();
+        for(int i = 0; i < temp.size(); i++) {
+            nums[i] = temp.get(i);
+        }
+        for(int i = temp.size(); i < size ; i++) {
+            nums[i] = 0;
+        }
+    }
+}
+
+
+
+Method 2: using 2 pointer method
+
+
+
+
+
